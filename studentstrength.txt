@@ -1,0 +1,20 @@
+create table class(class_id int,class_name varchar(20),class_strength int);
+insert into class values(100,'MCA',60);
+insert into class values(101,'BCA',30);
+insert into class values(102,'MCA',30);
+insert into class values(103,'BCA',30);
+insert into class values(104,'MCA',60);
+CREATE OR REPLACE FUNCTION total_strength
+RETURN NUMBER IS
+total NUMBER(5):=0;
+BEGIN
+SELECT sum(class_strength) INTO total FROM class WHERE
+class_name='MCA';
+RETURN total;
+END;
+DECLARE
+c NUMBER(5);
+BEGIN
+c:=total_strength();
+DBMS_OUTPUT.PUT_LINE('Total students in MCA department is:'||c);
+END;

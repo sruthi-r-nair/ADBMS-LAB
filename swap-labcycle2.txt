@@ -1,0 +1,27 @@
+DECLARE
+a INTEGER:=3;
+b INTEGER:=2;
+temp INTEGER:=0;
+c INTEGER;
+cube INTEGER;
+BEGIN
+IF a > b THEN
+temp:=a;
+a:=b;
+b:=temp;
+DBMS_OUTPUT.PUT_LINE('After swapping the a value is '||a ||' and b value is '||b);
+IF MOD(b,2) !=0 THEN
+cube:=a * a * a;
+DBMS_OUTPUT.PUT_LINE('Cube is :'||cube);
+ELSE
+DBMS_OUTPUT.PUT_LINE('first number is even');
+
+END IF;
+ELSIF a < b THEN
+c:=a **b;
+DBMS_OUTPUT.PUT_LINE('Power is :'||c);
+ELSIF a=b THEN
+DBMS_OUTPUT.PUT_LINE('Square root of a is :'||(SQRT(a)));
+DBMS_OUTPUT.PUT_LINE('Square root of b is :'||(SQRT(b)));
+END IF;
+END;
