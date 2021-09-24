@@ -1,0 +1,26 @@
+create table employee(emp_no int,emp_name varchar(20),emp_post
+varchar(20),emp_salary decimal(10,2));
+insert into employee values(100,'Ammu','Sales',7000);
+insert into employee values(101,'Rahul','Manager',50000);
+insert into employee values(102,'Appu','Accountant',15000);
+insert into employee values(103,'Sreekutty','HR',30000);
+insert into employee values(104,'Anju','Accountant',15000);
+Declare
+empno employee.emp_no%type;
+salary employee.emp_salary%type;
+emp_rec employee%rowtype;
+begin
+empno:=101;
+select emp_salary into salary from employee where emp_no=empno;
+if salary<7500 then
+update employe set emp_salary=emp_salary * 15/100 where
+emp_no=empno;
+else
+dbms_output.put_line('No more increment');
+end if;
+select * into emp_rec from employee where emp_no=empno;
+dbms_output.put_line('Employee num: '||emp_rec.emp_no);
+dbms_output.put_line('Employee name: '||emp_rec.emp_name);
+dbms_output.put_line('Employee post: '||emp_rec.emp_post);
+dbms_output.put_line('Employee salary: '||emp_rec.emp_salary);
+end
