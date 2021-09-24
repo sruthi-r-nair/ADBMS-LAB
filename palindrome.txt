@@ -1,0 +1,18 @@
+DECLARE
+a VARCHAR(15):='AMMA';
+b VARCHAR(15);
+n NUMBER;
+BEGIN
+n:=LENGTH(a);
+FOR i IN REVERSE 1..n
+LOOP
+b:=b || SUBSTR(a,I,1);
+END LOOP;
+DBMS_OUTPUT.PUT_LINE('Reversed String:'||b);
+n:=INSTR(a,b);
+IF n!=1 THEN
+DBMS_OUTPUT.PUT_LINE(b ||'is not a palindrome’);
+ELSE
+DBMS_OUTPUT.PUT_LINE(b ||'is a palindrome’);
+END IF;
+END;
